@@ -30,9 +30,7 @@ Checkbox Style From: https://codepen.io/wilder_taype/pen/pNXwMW
   outline: none;
   position: relative;
 }
-.option-input:hover {
-  background: #bdc3c9;
-}
+
 .option-input:checked {
   background: rgb(255, 136, 1);
 }
@@ -54,8 +52,16 @@ Checkbox Style From: https://codepen.io/wilder_taype/pen/pNXwMW
   z-index: 100;
 }
 
-.option-input:checked:hover {
-  background: #ffa74f;
+
+
+@media screen and (min-width:500px) {
+  .option-input:checked:hover {
+    background: #ffa74f;
+  }
+
+  .option-input:hover {
+    background: #bdc3c9;
+  }
 }
 
 body {
@@ -107,17 +113,18 @@ button {
     transition: all 0.5s ease;
 }
 
-button:hover {
-    background: #ffa74f;
-}
-
-
 .btn-submit {
   margin-top: 30px;
 }
 
-.btn-submit:focus {
-  background-color: rgb(238, 222, 193);
+@media screen and (min-width:500px) {
+  button:hover {
+    background: #ffa74f;
+  }
+
+  .btn-submit:focus {
+    background-color: rgb(238, 222, 193);
+  }
 }
 
 .copy-cell {
@@ -269,6 +276,7 @@ table td:last-child {
 }
 
 @media screen and (max-width:500px) {
+
   .container {
     padding: 0 10px;
   }
@@ -297,9 +305,6 @@ table td:last-child {
     padding: 1rem 1rem;
   }
 
-  .th-name {
-    padding-left: 15px;
-  }
 
   .copy-cell {
     gap: 10px;
@@ -307,7 +312,6 @@ table td:last-child {
 
   .repo-name {
     font-size: 14px;
-    word-break: break-word;
   }
 
   .copy-button {
@@ -383,7 +387,7 @@ Error Page Style From: https://codepen.io/akashrajendra/pen/JKKRvQ
   border: 15px solid #dddddd;
   border-top-color: #ff7e14;
   border-radius: 50%;
-  animation: loading 1s ease infinite;
+  animation: loading 0.75s ease infinite;
 }
 
 @keyframes loading {
