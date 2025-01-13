@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>GitHub Repos Searcher</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.png') }}">
+</head>
+
+<body>
+    
+    <div class="selector">
+        <h1>Languages</h1>
+        <form action="{{ url_for('index') }}" method="post">
+            {% for language in available_languages %}
+                <label>
+                    <input type="checkbox" class="option-input checkbox" name="languages" value="{{ language }}"
+                    {{ 'Checked' if language in selected_languages else 'Unchecked' }} />
+                    {{ language }}
+                </label>
+            {% endfor %}
+            <button class="btn-submit" type="submit">Submit</button>
+        </form>
+    </div>
+
+    <div class="container">
+        <h1>Popular GitHub Repositories</h1>
+        <div class="table-1">
+            <table>
+                <tbody>
+                    {% if not results %}
+                        No Results.
+                    {% else %}
+                        <tr>
+                            <th class="th-name">Name</th>
+                            <th>Language</th>
+                            <th>Number Stars</th>
+                        </tr>
+                    {% endif %}
+
+                    {% for result in results %}
+                        <tr>
+                            <td data-th="Block" class="copy-cell">
+                                <span class="repo-name">{{result.name}}</span>
+                                <button class="copy-button" onclick="redirectToURL('{{result.url_data}}')">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                                    </svg>
+                                </button>
+                            </td> 
+                            <td data-th="Element">{{result.language}}</td>
+                            <td class="stars-count" data-th="Modifier">{{result.num_stars}}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="loader"></div>
+    
+
+    <script>
+
+        //$(window).on("load", function(){
+            //$(".circle-container").fadeOut("slow");
+        //});
+
+        window.addEventListener("load", () => {
+            const loader = document.querySelector(".loader");
+          
+            loader.classList.add("loader--hidden");
+          
+            loader.addEventListener("transitionend", () => {
+              document.body.removeChild(loader);
+            });
+          });
+
+        function redirectToURL(url) {
+            // Redirect to the provided URL
+            // window.location.href = url;
+            window.open(url, '_blank')
+        }
+
+        function copyToClipboard(text) {
+            // Create a temporary textarea element
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            
+            // Select and copy the text
+            textarea.select();
+            try {
+                document.execCommand('copy');
+                showCopiedTooltip(event.target);
+            } catch (err) {
+                console.error('Failed to copy text: ', err);
+            }
+            
+            // Clean up
+            document.body.removeChild(textarea);
+        }
+        
+        function showCopiedTooltip(element) {
+            // Find the closest button element if clicked on the SVG or path
+            const button = element.closest('.copy-button');
+            const tooltip = button.querySelector('.tooltip');
+            
+            // Store the original text
+            const originalText = tooltip.textContent;
+            
+            // Change tooltip text
+            tooltip.textContent = 'Copied!';
+            tooltip.style.display = 'block';
+            
+            // Reset after 2 seconds
+            setTimeout(() => {
+                tooltip.textContent = originalText;
+                tooltip.style.display = 'none';
+            }, 2000);
+        }
+    </script>
+</body>
+
+</html> 

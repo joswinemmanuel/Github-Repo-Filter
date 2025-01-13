@@ -1,0 +1,334 @@
+
+/* 
+Checkbox Style From: https://codepen.io/wilder_taype/pen/pNXwMW
+*/
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,700);
+*{font-family: 'Roboto', sans-serif;}
+
+.option-input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  position: relative;
+  top: 13.33333px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 40px;
+  width: 40px;
+  transition: all 0.35s ease-out 0s;
+  background: #eae9e9;
+  border: none;
+  border-radius: 15%;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  margin-right: 0.5rem;
+  outline: none;
+  position: relative;
+}
+.option-input:hover {
+  background: #bdc3c9;
+}
+.option-input:checked {
+  background: rgb(255, 136, 1);
+}
+.option-input:checked::before {
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  content: '✔';
+  display: inline-block;
+  font-size: 26.66667px;
+  text-align: center;
+  line-height: 40px;
+}
+.option-input:checked::after {
+  background: rgb(255, 136, 1);
+  content: '';
+  display: block;
+  position: relative;
+  z-index: 100;
+}
+
+.option-input:checked:hover {
+  background: #ffa74f;
+}
+
+body {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  margin: 0px;
+  display: flex;
+  justify-content: center;
+  background: #ffffff;
+  color: #ffffff;
+  font-family: "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+  text-align: center;
+}
+body div {
+  padding: 5rem;
+  padding-top: 20px;
+}
+body label {
+  display: block;
+  line-height: 40px;
+  text-align: left;
+  color: rgb(255, 136, 1);
+}
+
+/* 
+Button Style From: https://codepen.io/wilder_taype/pen/LeoQEb
+*/
+
+button {
+    display: block;
+    border-radius: 3px;
+    margin: 15px 5px;
+    color: #ffffff;
+    cursor: pointer;
+    box-shadow: 3px 7px 7px 4px rgba(237,80,83,.5), 1px 0 0 rgba(0,0,0,.15);
+    background: rgb(255, 136, 1);
+    /* padding: 20px; */
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
+    flex-grow: 1;
+    width: 100px;
+    border: none;
+    font-size: 1.6rem;
+    line-height: 1.6;
+    transition: all 0.5s ease;
+}
+
+button:hover {
+    background: #ffa74f;
+}
+
+
+.btn-submit {
+  margin-top: 30px;
+}
+
+.btn-submit:focus {
+  background-color: rgb(238, 222, 193);
+}
+
+.copy-cell {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  justify-content: space-between;
+  /* margin-left: 0px; */
+}
+
+.copy-button {
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  color: #ffffff;
+  margin-left: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  max-width: 40px;
+}
+
+.copy-button:hover {
+  color: #fbfafa;
+}
+
+/*
+Table Style From: https://codepen.io/gmb/pen/xVGYZw
+*/
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1.6rem;
+  line-height: 1.6;
+  color: #20262e;
+  background-color: #1f1f1f;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.selector {
+  max-width: 800px;
+  margin-left: 160px;
+  margin-right: 90px;
+}
+
+.container {
+  max-width: 1000px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 3rem;
+  color: rgba(255, 255, 255, 0.914);
+  text-transform: uppercase;
+  line-height: 1.375;
+  margin: 0 0 2.4rem 0;
+  letter-spacing: 1px
+}
+
+h2 {
+  text-align: right;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  line-height: 1.375;
+  margin: 0;
+  letter-spacing: 1px
+}
+
+.table-1 {
+  padding-top: 10px;
+}
+table {
+  width: 100%;
+  min-width: 495px;
+  margin-bottom: 2.4rem;
+  background-color: #20262e15;
+  color: #fff;
+  overflow: hidden;
+  border: 2px solid rgb(255, 136, 1);
+  border-radius: .4rem;
+}
+
+table tr:nth-child(even) {
+  background-color: rgba(72, 62, 47, 0.367);
+}
+
+table th,
+table td:before {
+  color: rgb(255, 136, 1);
+}
+
+table th {
+  display: none;
+}
+
+table th,
+table td {
+  margin: .5rem 2rem;
+  text-align: left;
+}
+
+.th-name {
+  padding-left: 40px;
+}
+
+.stars-count {
+  text-align: center;
+}
+
+table td {
+  display: block;
+  font-size: 90%;
+}
+
+table td:first-child {
+  padding-top: 1rem;
+}
+
+table td:last-child {
+  padding-bottom: 1rem;
+}
+
+table td:before {
+  content: attr(data-th) ':\00a0';
+  font-weight: bold;
+  min-width: 8rem;
+  display: inline-block;
+}
+
+
+@media (min-width: 600px) {
+  table td:before {
+    display: none;
+  }
+  table th,
+  table td {
+    display: table-cell;
+  }
+  table th,
+  table td,
+  table td:first-child,
+  table td:last-child {
+    padding: 1.5rem 2rem;
+  }
+}
+
+/*
+Error Page Style From: https://codepen.io/akashrajendra/pen/JKKRvQ
+*/
+
+#error{
+    font-family: 'Lato', sans-serif;
+  color: #888;
+  margin: 0;
+  display: table;
+  width: 100%;
+  height: 100vh;
+  text-align: center;
+}
+
+.fof{
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.fof h1{
+    font-size: 50px;
+    display: inline-block;
+    padding-right: 12px;
+}
+
+
+
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #1f1f1f;
+  transition: opacity 2s, visibility 2s;
+}
+
+.loader--hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loader::after {
+  content: "";
+  width: 75px;
+  height: 75px;
+  border: 15px solid #dddddd;
+  border-top-color: #ff7e14;
+  border-radius: 50%;
+  animation: loading 1s ease infinite;
+}
+
+@keyframes loading {
+  from {
+    transform: rotate(0turn);
+  }
+  to {
+    transform: rotate(1turn);
+  }
+}
