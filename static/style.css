@@ -65,6 +65,7 @@ body {
   margin: 0px;
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   background: #ffffff;
   color: #ffffff;
   font-family: "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
@@ -196,7 +197,7 @@ h2 {
 }
 table {
   width: 100%;
-  min-width: 495px;
+  min-width: 200px;
   margin-bottom: 2.4rem;
   background-color: #20262e15;
   color: #fff;
@@ -253,20 +254,81 @@ table td:before {
 }
 
 
-@media (min-width: 600px) {
-  table td:before {
-    display: none;
+table td:before {
+  display: none;
+}
+table th,
+table td {
+  display: table-cell;
+}
+table th,
+table td,
+table td:first-child,
+table td:last-child {
+  padding: 1.5rem 2rem;
+}
+
+@media screen and (max-width:500px) {
+  .container {
+    padding: 0 10px;
   }
+
+  body label {
+    width: 150px;
+  }
+
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .table-1 {
+    padding-top: 5px;
+    overflow-x: auto;
+  }
+
+  table {
+    min-width: 100%;
+    font-size: 14px;
+  }
+
   table th,
   table td {
-    display: table-cell;
+    padding: 1rem 1rem;
   }
-  table th,
-  table td,
-  table td:first-child,
-  table td:last-child {
-    padding: 1.5rem 2rem;
+
+  .th-name {
+    padding-left: 15px;
   }
+
+  .copy-cell {
+    gap: 10px;
+  }
+
+  .repo-name {
+    font-size: 14px;
+    word-break: break-word;
+  }
+
+  .copy-button {
+    padding: 2px;
+    max-width: 30px;
+  }
+
+  .copy-button svg {
+    width: 10px;
+    height: 10px;
+  }
+
+  .stars-count {
+    white-space: nowrap;
+  }
+
+  body div {
+    padding: 2rem;
+    padding-top: 10px;
+  }
+  
 }
 
 /*
@@ -274,7 +336,7 @@ Error Page Style From: https://codepen.io/akashrajendra/pen/JKKRvQ
 */
 
 #error{
-    font-family: 'Lato', sans-serif;
+  font-family: 'Lato', sans-serif;
   color: #888;
   margin: 0;
   display: table;
